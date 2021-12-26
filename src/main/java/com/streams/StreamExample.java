@@ -24,14 +24,17 @@ public class StreamExample {
         Predicate<Student> studentGpa = student -> student.getGpa() >= 3.9;
         Map<String, List<String>> studentListMap = StudentDataBase.getAllStudents()
                 .stream()
+                .peek(student -> System.out.println("before filtering "+student))
                 .filter(studentGradeLevel)
+                .peek(student -> System.out.println("After the 1st filter "+student))
                 .filter(studentGpa)
+                .peek(student -> System.out.println("After the 2nd filter "+student))
                 .collect(Collectors.toMap(Student::getName, Student::getActivities));// very useful use case of the method reference
 
         System.out.println(studentListMap);
         /**
          * as we can observe how amazingly the stream API is when it comes to filtering the results and perform
-         * the logic is a declarative way compared to the imperative style of programming
+         * the logic in a declarative way compared to the imperative style of programming
          */
 
 
