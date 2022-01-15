@@ -2,7 +2,6 @@ package com.streams;
 
 import com.data.MockData;
 import com.data.Person;
-
 import java.util.List;
 import java.util.stream.Collectors;
 
